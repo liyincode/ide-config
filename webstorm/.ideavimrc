@@ -4,44 +4,58 @@ let mapleader=" "
 """ Plugins  --------------------------------
 set sneak
 set surround
-set commentary
+"" set commentary
 set argtextobj
 set easymotion
 set textobj-entire
 set ReplaceWithRegister
 set exchange
-Pl g 'machakann/vim-highlightedyank'
+Plug 'machakann/vim-highlightedyank'
 set NERDTree
 Plug 'terryma/vim-multiple-cursors'
 set which-key
 Plug 'dbakker/vim-paragraph-motion'
+Plug 'machakann/vim-highlightedyank'
 
 """ Plug settings -------------------------
+"" which-key
+set notimeout
+set timeoutlen=5000
 let g:WhichKey_FontSize = 16
 let g:WhichKey_CommandColor = "#41ead4"
 let g:WhichKey_PrefixColor = "#f335b2"
 let g:WhichKey_SortOrder = "by_key_prefix_first"
 let g:WhichKeyDesc_leader = "<leader> Leader key"
-let g:WhichKey_DefaultDelay = 200
+let g:WhichKey_DefaultDelay = 500
 
-map C-n <Plug>NextWholeOccurrence
+"" terryma/vim-multiple-cursors
+nmap <C-n> <Plug>NextWholeOccurrence
+xmap <C-n> <Plug>NextWholeOccurrence
+nmap g<C-n> <Plug>NextOccurrence
+xmap g<C-n> <Plug>NextOccurrence
+xmap <C-x> <Plug>SkipOccurrence
+xmap <C-p> <Plug>RemoveOccurrence
 
+"" NERDTree
 map <leader>pf :NERDTreeFind<CR>
 map <leader>pp :NERDTreeToggle<CR>
 
-"" 取消 s 键被占用, 回归默认功能
-unmap s
-nmap f <Plug>(sneak-s)
-vmap f <Plug>(sneak-s)
-omap f <Plug>(sneak-s)
-"" 取消 S 键被占用, 回归默认功能
-unmap S
-nmap F <Plug>(sneak-S)
-vmap F <Plug>(sneak-S)
-"" 比如 aabbccdd 键入'df dd', 结果为 dd，意思是删除字母至 dd
-omap F <Plug>(sneak-S)
+"" easymotion
+unmap f
+map f <Plug>(easymotion-f)
+map F <Plug>(easymotion-F)
 
-et timeoutlen=5000
+"" 取消 s 键被占用, 回归默认功能
+"" unmap s
+"" nmap f <Plug>(sneak-s)
+"" vmap f <Plug>(sneak-s)
+"" omap f <Plug>(sneak-s)
+"" 取消 S 键被占用, 回归默认功能
+"" unmap S
+"" nmap F <Plug>(sneak-S)
+"" vmap F <Plug>(sneak-S)
+"" 比如 aabbccdd 键入'df dd', 结果为 dd，意思是删除字母至 dd
+"" omap F <Plug>(sneak-S)
 
 """ Common settings -------------------------
 " 开启输入法自动切换功能
@@ -50,8 +64,11 @@ set keep-english-in-normal
 set scrolloff=5
 " 随着输入实时高亮匹配结果
 set incsearch
+
 " 搜索高亮显示
 " set hlsearch
+" 忽略大小写
+set ignorecase
 " 搜索时智能区分大小写
 set smartcase
 " 在状态栏显示当前编辑模式
@@ -86,9 +103,9 @@ onoremap L g_
 vnoremap L g_
 
 "" K 向上移动 5 行
-nnoremap J 5j
+"" nnoremap J 5j
 "" J 向下移动 5 行
-nnoremap K 5k
+"" nnoremap K 5k
 
 "" 取消撤销
 map U <C-R>
@@ -104,7 +121,7 @@ let g:WhichKeyDesc_zj = "zj 向下插入空行"
 nnoremap <silent> zk O<Esc>j
 let g:WhichKeyDesc_zk = "zk 向上插入空行"
 
-"
+" 缩进
 vnoremap < <gv
 vnoremap > >gv
 
