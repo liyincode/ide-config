@@ -4,7 +4,7 @@ let mapleader=" "
 """ Plugins  --------------------------------
 set sneak
 set surround
-"" set commentary
+set commentary
 set argtextobj
 set easymotion
 set textobj-entire
@@ -15,18 +15,18 @@ set NERDTree
 Plug 'terryma/vim-multiple-cursors'
 set which-key
 Plug 'dbakker/vim-paragraph-motion'
-Plug 'machakann/vim-highlightedyank'
 
 """ Plug settings -------------------------
 "" which-key
 set notimeout
 set timeoutlen=5000
-let g:WhichKey_FontSize = 16
+let g:WhichKey_FontSize=16
 let g:WhichKey_CommandColor = "#41ead4"
 let g:WhichKey_PrefixColor = "#f335b2"
 let g:WhichKey_SortOrder = "by_key_prefix_first"
-let g:WhichKeyDesc_leader = "<leader> Leader key"
+"" let g:WhichKeyDesc_leader = "<leader> Leader key"
 let g:WhichKey_DefaultDelay = 500
+let g:WhichKey_ShowVimActions = "true"
 
 "" terryma/vim-multiple-cursors
 nmap <C-n> <Plug>NextWholeOccurrence
