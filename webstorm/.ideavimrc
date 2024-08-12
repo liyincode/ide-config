@@ -228,3 +228,5 @@ nmap <leader>fp <Action>(FindInPath)
 let g:WhichKeyDesc_fp = "<leader>fp FindInPath"
 nmap <leader>fe <Action>(RecentFiles)
 let g:WhichKeyDesc_fe = "<leader>fe 打开最近打开的文件列表"
+nmap <leader>fu <Action>(FindUsages)
+let g:WhichKeyDesc_fu = "<leader>fu 查找引用"
